@@ -1,0 +1,190 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0a0a16;
+
+  /* 添加赛博朋克霓虹色变量 */
+  --neon-pink: #ff2a6d;
+  --neon-blue: #05d9e8;
+  --neon-purple: #d300c5;
+  --neon-yellow: #fee800;
+  --dark-bg: #0a0a16;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  border-radius: 8px;
+  border: 2px solid var(--neon-blue);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  color: var(--neon-blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(5, 217, 232, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+button:hover {
+  border-color: var(--neon-blue);
+  transform: scale(1.05);
+  color: white;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* 添加鼠标光晕效果类 */
+.mouse-glow {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: transparent;
+  border: 4px solid transparent;
+  border-top: 4px solid var(--neon-blue);
+  border-right: 4px solid var(--neon-purple);
+  border-bottom: 4px solid var(--neon-pink);
+  border-left: 4px solid var(--neon-yellow);
+  pointer-events: none;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: glow-rotate 2s linear infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes glow-rotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* 添加鼠标星星跟随效果 */
+.mouse-star {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-blue);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+/* 星星消失动画 */
+.mouse-star.fade-out {
+  opacity: 0;
+}
+
+/* 星星闪烁动画 */
+.mouse-star {
+  animation: star-twinkle 1s infinite alternate;
+}
+
+@keyframes star-twinkle {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* 科技感旋转锁定环 */
+.mouse-tech-ring {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--neon-blue);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.3s ease-out;
+  animation: glow-rotate 2s linear infinite;
+}
+
+/* 添加内部旋转元素 */
+.mouse-tech-ring::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 1px dashed var(--neon-blue);
+  border-radius: 50%;
+  animation: tech-rotate-reverse 4s linear infinite;
+}
+
+.mouse-tech-ring::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  /* 8个粒子，使用霓虹紫色增强科技感，围绕圆环分布 */
+  background-image: 
+    radial-gradient(circle at 50% 0%, var(--neon-purple) 4px, transparent 4px),
+    radial-gradient(circle at 85.36% 14.65%, var(--neon-purple) 4px, transparent 4px),
+    radial-gradient(circle at 100% 50%, var(--neon-purple) 4px, transparent 4px),
+    radial-gradient(circle at 85.36% 85.36%, var(--neon-purple) 4px, transparent 4px),
+    radial-gradient(circle at 50% 100%, var(--neon-purple) 4px, transparent 4px),
+    radial-gradient(circle at 14.65% 85.36%, var(--neon-purple) 4px, transparent 4px),
+    radial-gradient(circle at 0% 50%, var(--neon-purple) 4px, transparent 4px),
+    radial-gradient(circle at 14.65% 14.65%, var(--neon-purple) 4px, transparent 4px);
+  border-radius: 50%;
+  animation: tech-rotate 4s linear infinite;
+}
+
+/* 添加动态缩放效果 */
+.mouse-tech-ring.active {
+  opacity: 1;
+  animation: ring-pulse 1.5s infinite alternate;
+}
+
+@keyframes ring-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes tech-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes tech-rotate-reverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
