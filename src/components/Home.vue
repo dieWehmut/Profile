@@ -19,7 +19,7 @@ const openLink = (url) => {
           <h2>🌳Learning...</h2>
           <ul>
             <li>· qt,renpy,unity 🤖</li>
-            <li>· vue,cpp,c,py,rpy,js,qml,css,html 🌐</li>
+            <li>· c,md,latex,cpp,py,html,js,css,vue,rpy,c#,qml🌐</li>
           </ul>
         </div>
         
@@ -27,7 +27,7 @@ const openLink = (url) => {
         <div class="note-card">
           <div class="header-container">
             <h2>💼Showcase</h2>
-            <button class="redirect-button" @click="openLink('https://diewehmut.github.io/Showcase')">click here</button>
+            <button class="redirect-button" @click="openLink('https://diewehmut.github.io/Showcase/')">go to showcase</button>
           </div>
           <p class="description-text">Project and Products.</p>
         </div>
@@ -35,8 +35,8 @@ const openLink = (url) => {
         <!-- Blog/Notes Section -->
         <div class="note-card">
           <div class="header-container">
-            <h2>📝Blog</h2>
-            <button class="redirect-button" @click="openLink('https://diewehmut.github.io/Blog/')">click here</button>
+            <h2>📝Notes</h2>
+            <button class="redirect-button" @click="openLink('https://diewehmut.github.io/Notes/')">go to notes</button>
           </div>
           <p class="description-text">Some notes and thoughts.</p>
         </div>
