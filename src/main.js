@@ -1,10 +1,8 @@
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
-import router from "./router";
-const app = createApp(App);
 
-app.use(router);
+const app = createApp(App);
 app.mount("#app");
 
 // 创建一个数组来存储最近的鼠标位置
@@ -101,27 +99,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 在mousemove事件处理中添加动态效果
-if (techRing) {
-  // 随机颜色变化
-  const hue = Math.random() * 360;
-  techRing.style.borderColor = `hsl(${hue}, 100%, 50%)`;
-  techRing.style.boxShadow = `0 0 15px hsl(${hue}, 100%, 50%),
-     0 0 30px hsl(${hue}, 100%, 50%)`;
-
-  // 随机尺寸波动
-  const size = 25 + Math.random() * 10;
-  techRing.style.width = `${size}px`;
-  techRing.style.height = `${size}px`;
-
-  // 添加粒子特效
-  const particle = document.createElement("div");
-  particle.className = "particle";
-  particle.style.cssText = `
-    left: ${e.pageX}px;
-    top: ${e.pageY}px;
-    background: hsl(${hue}, 100%, 50%);
-  `;
-  document.body.appendChild(particle);
-  setTimeout(() => particle.remove(), 500);
-}

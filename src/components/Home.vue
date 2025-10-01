@@ -1,6 +1,10 @@
 
 <script setup>
 import Sidebar from './Sidebar.vue'
+
+const openLink = (url) => {
+  window.open(url, '_blank')
+}
 </script>
 
 <template>
@@ -12,19 +16,29 @@ import Sidebar from './Sidebar.vue'
     <div class="home-container">
       <div class="home-list">
         <div class="note-card">
-          <h2>🌳 Skill Tree</h2>
+          <h2>🌳Learning...</h2>
           <ul>
-            <li>· AI-powered learning and project development 🤖</li>
-            <li>· Web development with Vue + Vite 🌐</li>
+            <li>· qt,renpy,unity 🤖</li>
+            <li>· vue,cpp,c,py,rpy,js,qml,css,html 🌐</li>
           </ul>
         </div>
+        
+        <!-- Projects Section -->
         <div class="note-card">
-          <h2>🚀 Extracurricular Learning and Exploration</h2>
-          <ul>
-            <li>· Machine Learning and Deep Learning 🧠</li>
-            <li>· Full-stack development, especially Vue web dev 💻</li>
-          </ul>
-          <p class="novel-prompt">If you're interested, feel free to chat with me! 💬</p>
+          <div class="header-container">
+            <h2>💼Showcase</h2>
+            <button class="redirect-button" @click="openLink('https://diewehmut.github.io/Showcase')">click here</button>
+          </div>
+          <p class="description-text">Project and Products.</p>
+        </div>
+        
+        <!-- Blog/Notes Section -->
+        <div class="note-card">
+          <div class="header-container">
+            <h2>📝Blog</h2>
+            <button class="redirect-button" @click="openLink('https://diewehmut.github.io/Blog/')">click here</button>
+          </div>
+          <p class="description-text">Some notes and thoughts.</p>
         </div>
       </div>
     </div>
@@ -56,6 +70,13 @@ import Sidebar from './Sidebar.vue'
   margin-right: 1rem;
 }
 
+.sticky-sidebar {
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+  z-index: 100;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
@@ -63,7 +84,7 @@ import Sidebar from './Sidebar.vue'
   flex: 1 1 0%;
   min-width: 0;
   margin: 0;
-  padding: 0;
+  padding: 2rem 0 0 0;
 }
 
 .home-list {
@@ -76,18 +97,27 @@ import Sidebar from './Sidebar.vue'
 }
 
 .note-card {
-  background-color: #b0ebea;
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
   padding: 1.6rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  border-left: 5px solid #d000ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 3px solid #666;
   margin-bottom: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .note-card h2 {
-  margin-bottom: 0.6rem;
-  color: #000;
-  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
 .note-card ul {
@@ -99,8 +129,8 @@ import Sidebar from './Sidebar.vue'
 .note-card li {
   margin-bottom: 0.5rem;
   line-height: 1.6;
-  color: #000;
-  font-weight: 600;
+  color: #555;
+  font-weight: normal;
 }
 
 .novel-prompt {
@@ -108,6 +138,42 @@ import Sidebar from './Sidebar.vue'
   color: #555;
   font-style: italic;
   font-size: 0.95rem;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.header-container h2 {
+  margin-bottom: 0;
+  margin-right: 1rem;
+}
+
+.redirect-button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.redirect-button:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.description-text {
+  margin-top: 0.5rem;
+  color: #333;
+  line-height: 1.5;
 }
 
 @media (max-width: 900px) {
