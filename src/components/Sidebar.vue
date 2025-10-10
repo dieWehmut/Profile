@@ -1,6 +1,4 @@
 <script setup>
-import avatar from '@assets/avatar/avatar.jpg'
-
 const openLink = (url) => {
   window.open(url, '_blank')
 }
@@ -8,9 +6,6 @@ const openLink = (url) => {
 
 <template>
   <div class="sidebar-container">
-    <div class="avatar-container">
-      <img :src="avatar" alt="My Avatar" class="avatar">
-    </div>
     <div class="intro">
       <div class="intro-title">About Me 👤</div>
       <div class="intro-text">
@@ -19,7 +14,7 @@ const openLink = (url) => {
     </div>
     <div class="Website">
       <ul>
-        <li><span class="dieSWNexus">Nexus</span>: <button class="link-button" @click="openLink('https://diewehmut.github.io')">Click here</button></li>
+        <li><span class="dieSWNexus">Nexus</span>: <button class="link-button" @click="openLink('https://www.hc-dsw-nexus.me')">go to nexus</button></li>
       </ul>
     </div>
   </div>
@@ -40,22 +35,7 @@ const openLink = (url) => {
   flex-direction: column;
   align-items: center;
 }
-.avatar-container {
-  margin-bottom: 1.5rem;
-}
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #666;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-.avatar:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+
 .intro {
   background: #f8f9fa;
   border-radius: 8px;

@@ -16,10 +16,10 @@ const openLink = (url) => {
     <div class="home-container">
       <div class="home-list">
         <div class="note-card">
-          <h2>🌳Learning...</h2>
+          <h2>🌳Exposed to</h2>
           <ul>
             <li>· qt,renpy,unity 🤖</li>
-            <li>· c,md,latex,cpp,py,html,js,css,vue,rpy,c#,qml🌐</li>
+            <li>· c,md,latex,cpp,py,html,js,css,vue,rpy,c#,qml,react,jsx🌐</li>
           </ul>
         </div>
         
@@ -27,7 +27,7 @@ const openLink = (url) => {
         <div class="note-card">
           <div class="header-container">
             <h2>💼Showcase</h2>
-            <button class="redirect-button" @click="openLink('https://diewehmut.github.io/Showcase/')">go to showcase</button>
+            <button class="redirect-button" @click="openLink('https://showcase.hc-dsw-nexus.me')">go to showcase</button>
           </div>
           <p class="description-text">Project and Products.</p>
         </div>
@@ -36,7 +36,7 @@ const openLink = (url) => {
         <div class="note-card">
           <div class="header-container">
             <h2>📝Notes</h2>
-            <button class="redirect-button" @click="openLink('https://diewehmut.github.io/Notes/')">go to notes</button>
+            <button class="redirect-button" @click="openLink('https://notes.hc-dsw-nexus.me')">go to notes</button>
           </div>
           <p class="description-text">Some notes and thoughts.</p>
         </div>
@@ -57,7 +57,7 @@ const openLink = (url) => {
   box-sizing: border-box;
   padding: 0;
   gap: 0;
-  min-height: 70vh;
+  min-height: 60vh;
 }
 
 .sidebar-with-index {
@@ -67,7 +67,7 @@ const openLink = (url) => {
   min-width: 220px;
   max-width: 350px;
   gap: 0;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .sticky-sidebar {
@@ -90,7 +90,7 @@ const openLink = (url) => {
 .home-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0rem;
   width: 100%;
   max-width: 800px;
   margin: 0;
