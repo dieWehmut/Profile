@@ -1,0 +1,69 @@
+{
+  "backToTop": "トップへ戻る",
+  "settings": "設定",
+  "language": "言語",
+  "search": { "hint": "検索 ..." },
+  "sidebar": {
+    "bio": "南京大学（蘇州キャンパス）知能科学技術 学士",
+    "lastUpdated": "最終更新：",
+    "followers": "{count} フォロワー",
+    "location": "中国 蘇州"
+  },
+  "nav": {
+    "pages": "ページ",
+    "games": "ゲーム",
+    "apps": "アプリ",
+    "files": "ファイル",
+    "tools": "ツール"
+  },
+  "common": {
+    "totalFormat": "合計 {count} 件",
+    "totalFiles": "合計 {count} ファイル",
+    "versionsCount": "{count} バージョン",
+    "matchedFormat": "一致 {count} 件"
+  },
+  "action": {
+    "open": "開く",
+    "copy": "コピー",
+    "copied": "コピー済み",
+    "first_result_copied": "最初の結果のリンクをコピーしました",
+    "copy_failed": "コピーに失敗しました",
+    "download": "ダウンロード",
+    "repo": "リポジトリ",
+    "view": "表示",
+    "expand": "展開",
+    "collapse": "折りたたむ"
+  },
+  "footer": { "uptime": "稼働時間" },
+  "languages": {
+    "zh": "中文",
+    "zh_tw": "繁體",
+    "en": "English",
+    "ja": "日本語",
+    "de": "Deutsch"
+  }
+  ,
+  "githubActivity": "GitHub アクティビティ"
+,
+  "github": {
+    "title": "GitHub 分析",
+    "stars": "スター",
+    "forks": "フォーク",
+    "watchers": "ウォッチャー",
+    "commits30": "コミット（30日）",
+    "topLanguages": "主要言語",
+    "contributionGraph": "貢献グラフ"
+    ,
+    "lastUpdated": "最終更新",
+    "lastCommit": "最新のコミット"
+  }
+,
+  "intro": {
+    "title": "ようこそ！",
+    "subtitle": "dieWehmut の Profile"
+  }
+  ,
+  "float": {
+    "cleanMode": "クリーンモードを切り替え"
+  }
+}

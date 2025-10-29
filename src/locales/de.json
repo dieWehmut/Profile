@@ -1,0 +1,69 @@
+{
+  "backToTop": "Nach oben",
+  "settings": "Einstellungen",
+  "language": "Sprache",
+  "search": { "hint": "Suche ..." },
+  "sidebar": {
+    "bio": "Bachelor in Intelligent Science and Technology, Nanjing University, Suzhou Campus",
+    "lastUpdated": "Zuletzt aktualisiert: ",
+    "followers": "{count} Follower",
+    "location": "Suzhou, China"
+  },
+  "nav": {
+    "pages": "Seiten",
+    "games": "Spiele",
+    "apps": "Apps",
+    "files": "Dateien",
+    "tools": "Werkzeuge"
+  },
+  "common": {
+    "totalFormat": "Insgesamt {count} Elemente",
+    "totalFiles": "Insgesamt {count} Dateien",
+    "versionsCount": "{count} Versionen",
+    "matchedFormat": "Gefunden {count} Elemente"
+  },
+  "action": {
+    "open": "Öffnen",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "first_result_copied": "Link des ersten Ergebnisses kopiert",
+    "copy_failed": "Kopieren fehlgeschlagen",
+    "download": "Herunterladen",
+    "repo": "Repo",
+    "view": "Anzeigen",
+    "expand": "Erweitern",
+    "collapse": "Einklappen"
+  },
+  "footer": { "uptime": "Betriebszeit" },
+  "languages": {
+    "zh": "中文",
+    "zh_tw": "繁體",
+    "en": "English",
+    "ja": "日本語",
+    "de": "Deutsch"
+  }
+  ,
+  "githubActivity": "GitHub-Aktivität"
+,
+  "github": {
+    "title": "GitHub-Analyse",
+    "stars": "Sterne",
+    "forks": "Forks",
+    "watchers": "Beobachter",
+    "commits30": "Commits (30 Tage)",
+    "topLanguages": "Top-Sprachen",
+    "contributionGraph": "Beitragsdiagramm"
+    ,
+    "lastUpdated": "Zuletzt aktualisiert",
+    "lastCommit": "Letzter Commit"
+  }
+,
+  "intro": {
+    "title": "Willkommen!",
+    "subtitle": "dieWehmut's Profile"
+  }
+  ,
+  "float": {
+    "cleanMode": "Clean-Modus umschalten"
+  }
+}
