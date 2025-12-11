@@ -11,12 +11,24 @@ const { pages, githubAnalytics, achievements, contributionGraphUrl, recentActivi
 const visiblePages = computed(() => pages.value.slice(0, 6));
 
 import { onMounted, ref, watch } from 'vue';
-// derive top languages with simple pct calculation
+// derive top languages: prefer metrics.languageDistribution when available, fall back to githubAnalytics
 const topLanguages = computed(() => {
+  const mlist = (metrics && metrics.value && metrics.value.languageDistribution) || (metrics.languageDistribution || []);
+  if (Array.isArray(mlist) && mlist.length) {
+    return mlist.map((it) => ({ name: it.name, pct: Math.round(it.pct || it.percentage || it.percent || 0) }));
+  }
   const list = (githubAnalytics.value && githubAnalytics.value.topLanguages) || (githubAnalytics.topLanguages || []);
   const total = list.reduce((s, it) => s + (it.count || 0), 0) || 0;
   if (total === 0) return list.map((it) => ({ name: it.name, pct: 0 }));
   return list.map((it) => ({ name: it.name, pct: Math.round(((it.count || 0) / total) * 100) }));
+});
+
+// detect whether contribution graph is a local 3D SVG
+const is3DContrib = computed(() => {
+  try {
+    const url = (contributionGraphUrl && contributionGraphUrl.value) || contributionGraphUrl || '';
+    return typeof url === 'string' && url.includes('profile-3d-contrib');
+  } catch (e) { return false; }
 });
 
 onMounted(() => {
@@ -208,7 +220,10 @@ watch(() => contributionGraphUrl, (v) => {
         </div>
 
         <div class="gh-langs">
-          <h3>{{ $t('github.topLanguages') }}</h3>
+          <h3>
+            {{ $t('github.topLanguages') }}
+            <small v-if="metrics && metrics.value && metrics.value.languageDistribution && metrics.value.languageDistribution.length">(metrics)</small>
+          </h3>
           <div class="lang-list">
             <div class="lang-item" v-for="l in topLanguages" :key="l.name">
               <div class="lang-name">{{ l.name }}</div>
@@ -221,7 +236,10 @@ watch(() => contributionGraphUrl, (v) => {
         </div>
 
         <div class="contrib-full">
-          <h3>{{ $t('github.contributionGraph') }}</h3>
+          <h3>
+            {{ $t('github.contributionGraph') }}
+            <small v-if="is3DContrib">(3D)</small>
+          </h3>
           <div class="contrib-img contrib-large" v-if="contribSvg" v-html="contribSvg"></div>
           <img v-else :src="contributionGraphUrl" :alt="$t('github.contributionGraph')" class="contrib-img contrib-large" />
         </div>

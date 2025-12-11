@@ -129,7 +129,9 @@ export function useContent() {
   ]);
 
   // Contribution graph image URL (3rd party service or generated SVG)
-  const contributionGraphUrl = ref(`https://ghchart.rshah.org/dieWehmut`); // placeholder (public service)
+    // Contribution graph image URL: prefer locally generated 3D SVG if available
+    const LOCAL_3D_DIR = 'profile-3d-contrib';
+    const contributionGraphUrl = ref('');
 
   const recentActivity = ref([
     // events like { type: 'PushEvent', repo: 'showcase', date: '2025-10-01', msg: 'Released v1.3', url: '...' }
@@ -206,6 +208,13 @@ export function useContent() {
       const ghData = { stars, forks, watchers, openIssues, topLanguages };
       githubAnalytics.value = ghData;
 
+      // derive language distribution percentages and populate metrics.languageDistribution
+      try {
+        const totalCount = topLanguages.reduce((s, it) => s + (it.count || 0), 0) || 0;
+        const languageDistribution = topLanguages.map(it => ({ name: it.name, pct: totalCount > 0 ? Math.round(((it.count || 0) / totalCount) * 100) : 0 }));
+        metrics.value.languageDistribution = languageDistribution;
+      } catch (e) { /* ignore */ }
+
       // Recent activity (fetch events)
       const eventsRes = await fetch(`https://api.github.com/users/${owner}/events/public`, { headers });
       if (eventsRes.ok) {
@@ -230,7 +239,18 @@ export function useContent() {
       ];
 
       // contribution graph: keep the existing 3rd-party URL unless you generate SVG yourself
-      contributionGraphUrl.value = `https://ghchart.rshah.org/${owner}`;
+        // contribution graph: prefer locally generated 3D SVG if it exists, otherwise use 3rd-party URL
+        const localPath = `/${LOCAL_3D_DIR}/${owner}.svg`;
+        try {
+          const probe = await fetch(localPath, { method: 'HEAD' });
+          if (probe && probe.ok) {
+            contributionGraphUrl.value = localPath;
+          } else {
+            contributionGraphUrl.value = `https://ghchart.rshah.org/${owner}`;
+          }
+        } catch (e) {
+          contributionGraphUrl.value = `https://ghchart.rshah.org/${owner}`;
+        }
 
       // visitor badge could be integrated with your analytics service (placeholder shields.io badge)
       visitorBadgeUrl.value = `https://img.shields.io/badge/visitors--${Math.floor(Math.random()*10000)}-blue`;
