@@ -16,7 +16,7 @@
     <div class="hub-buttons">
       <!-- Instagram first -->
       <a
-        href="https://www.instagram.com/dieWehmut0"
+        href="https://www.instagram.com/"
         target="_blank"
         rel="noopener"
         class="hub-button instagram"
@@ -29,7 +29,7 @@
 
       <!-- X (middle) -->
       <a
-        href="https://x.com/DSehnsucht82356"
+        href="https://x.com/"
         target="_blank"
         rel="noopener"
         class="hub-button x"
@@ -42,7 +42,7 @@
 
       <!-- Facebook last (replaces GitHub) -->
       <a
-        href="https://www.facebook.com/profile.php?id=61582116135158"
+        href="https://www.facebook.com/"
         target="_blank"
         rel="noopener"
         class="hub-button facebook"
